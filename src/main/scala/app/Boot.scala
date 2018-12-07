@@ -21,7 +21,6 @@ object Boot {
       .post("/graphql", new GraphqlBodyHandler())
       .get("/render-schema", new GraphqlSchemaHandler())
       .get("/render-json-schema", new GraphqlJsonSchemaHandler())
-      .add(path().addPrefixPath(assets("/graphiql"))
     val handler = new HttpHandler {
         def handleRequest(exchange: HttpServerExchange) {
         exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");

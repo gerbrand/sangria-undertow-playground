@@ -118,5 +118,5 @@ object SchemaDefinition {
         resolve = Projector((ctx, f) ⇒ ctx.ctx.getDroid(ctx arg ID).get))
     ))
 
-  val StarWarsSchema = Schema(Query)
+  val StarWarsSchema: Schema[CharacterRepo, Unit] = Schema(Query)
 }

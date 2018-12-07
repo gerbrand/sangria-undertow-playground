@@ -26,6 +26,8 @@ object ExHandlers extends Logger {
 
   case class Error(code: Int, key: String, message: String)
 
+  implicit val errorFormat = Json.format[Error]
+
   def gzip(next: HttpHandler): EncodingHandler = new EncodingHandler(
     header(next, VARY_STRING, ACCEPT_ENCODING_STRING),
     new ContentEncodingRepository().addEncodingHandler(GZIP.toString, new GzipEncodingProvider, 1)
